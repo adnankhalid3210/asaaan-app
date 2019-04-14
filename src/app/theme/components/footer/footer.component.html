@@ -1,0 +1,59 @@
+<footer class="bg-primary footer">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between" class="py-3 border-bottom-mute theme-container">
+        <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="40">
+            <h3 class="col-title">ABOUT US</h3>
+            <p class="mt-2">We provide a platform to individuals and organizatons to offer their Skills and Services to
+                people who need them!
+                <a routerLink="/about-us" class="link secondary-color">About Us</a>
+            </p>
+            <p class="mt-1">
+                <a routerLink="/about-us" class="link secondary-color"><img src = "assets/images/others/app.png" width="160px" height="80px"></a>
+            </p>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="40">
+            <h3 class="col-title">USEFUL LINKS</h3>
+            <p class="mt-1"><a routerLink="/how-it-works" class="link secondary-color">How It Works</a></p>
+            <p class="mt-1"><a routerLink="/security" class="link secondary-color">Security</a></p>
+            <p class="mt-1"><a routerLink="/terms" class="link secondary-color">Terms And Conditions</a></p>
+            <p class="mt-1"><a routerLink="/policy" class="link secondary-color">Privacy Policy</a></p>
+            <p class="mt-1"><a routerLink="/contact" class="link secondary-color">Contact</a></p>
+            <p class="mt-1"><a routerLink="/faq" class="link secondary-color">FAQ</a></p>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="30" fxFlex.sm="60" ngClass.xs="mt-2">
+            <h3 class="col-title">CONTACT INFORMATION</h3>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-2 secondary-color">
+                <mat-icon class="mr-1">location_on</mat-icon>
+                <span>2903 Avenue Z, Brooklyn, NY</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 secondary-color">
+                <mat-icon class="mr-1">call</mat-icon>
+                <span>(212) 457-2308</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 secondary-color">
+                <mat-icon class="mr-1">mail_outline</mat-icon>
+                <span>contact@emporium.com</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 secondary-color">
+                <mat-icon class="mr-1">schedule</mat-icon>
+                <span>Mon - Sun / 9:00AM - 8:00PM</span>
+            </p>
+            <!-- <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 secondary-color">
+                <mat-icon class="mr-1">directions</mat-icon>
+                <a href="javascript:void(0);" class="link secondary-color">Get directions</a>
+            </p> -->
+            <!-- <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 secondary-color">
+                <mat-icon class="mr-1">directions_bus</mat-icon>
+                <span>Routes to us</span>
+            </p> -->
+        </div>
+        <!-- <div fxFlex="100" fxFlex.gt-sm="50" ngClass.sm="mt-2" ngClass.xs="mt-2"> 
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeControl]="true">
+                <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"></agm-marker>
+            </agm-map>
+        </div> -->
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" class="copyright secondary-color theme-container">
+        <p ngClass.xs="mt-1">Copyright © 2018 All Rights Reserved</p>
+        <!-- <p>Designed & Developed by <a mat-button href="http://themeseason.com/" target="_blank">ThemeSeason</a></p> -->
+    </div>
+</footer>

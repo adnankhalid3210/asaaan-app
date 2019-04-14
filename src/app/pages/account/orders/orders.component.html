@@ -1,0 +1,49 @@
+<mat-accordion>
+  <section class="mat-elevation-z2 mat-header-row">
+    <span class="mat-header-cell">Date</span>
+    <!-- <span class="mat-header-cell">Id</span> -->
+    <span class="mat-header-cell">Service Provider</span>
+    <span class="mat-header-cell">Status</span>
+  </section>
+
+  <div *ngFor="let order of orders">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-row">
+        <span class="mat-cell">{{order.date | date}}</span>
+        <!-- <span class="mat-cell">{{order.orderId}}</span> -->
+        <span class="mat-cell">{{order.serviceProvider.name}}</span>
+        <span class="mat-cell">{{order.status}}</span>
+      </mat-expansion-panel-header>
+      <h4>Order Details </h4>
+      <div class="actions">
+        <button *ngIf="order.status === 'Pending' || order.status === 'Accepted'" mat-raised-button color="primary"
+          matTooltip="Cancel" (click)="changeStatus(order, 'Cancelled')">Cancel
+        </button>&nbsp;
+        <button (click)="openReviewModal(order)" *ngIf="order.status === 'Completed'" mat-raised-button color="primary"
+          matTooltip="Review">Close</button>
+      </div>
+      <table style="width:100%">
+        <tr>
+          <td>Hiring Date:</td>
+          <td>{{order.hiringDate | date}}</td>
+
+        </tr>
+        <tr>
+          <td>Time:</td>
+          <td>{{order.time}}</td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>{{order.address}}</td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>{{order.description}}</td>
+        </tr>
+
+      </table>
+
+    </mat-expansion-panel>
+
+  </div>
+</mat-accordion>

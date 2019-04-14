@@ -1,0 +1,27 @@
+// .close-btn-outer{
+//     position: relative;
+//     button{
+//         position: absolute;
+//         right: -44px;
+//         top: -24px;
+//     }
+// }
+.mat-dialog-actions {
+    justify-content: flex-end;
+}
+.main-head {
+    text-align: center;
+}
+h6 {
+    font-size: 15px;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: textfield; 
+}
+.mat-button.mat-small {
+    min-width: 1%;
+}
+.resend {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,31 @@
+<!-- <div class="close-btn-outer">
+  <button mat-mini-fab color="warn" (click)="close()"><mat-icon>close</mat-icon></button>
+</div> -->
+<!-- <h2 mat-dialog-title>{{modalTitle}}</h2>
+<mat-dialog-content>Do you wish to continue previous shopping?</mat-dialog-content>
+<mat-dialog-actions>
+ <button mat-button mat-dialog-close>No</button>
+ <button mat-button mat-dialog-close>Yes</button>
+</mat-dialog-actions> -->
+<div id="sign-in-button"></div>
+<h1 class="main-head" mat-dialog-title>{{modalTitle}}</h1>
+<mat-divider></mat-divider>
+<h6 mat-dialog-title>Enter the 6 digit code we sent to {{modalPhone}}</h6>
+
+
+<mat-dialog-content >
+  
+    <mat-form-field>
+        <input type="text" placeholder="6-digit code" matInput name="code" [(ngModel)]="verificationCode">
+    </mat-form-field>
+      
+ 
+</mat-dialog-content>
+<button  mat-raised-button class="resend" (click)="disableResend()" [disabled] = "btnDisable">Resend code.</button>
+<h5 *ngIf = "btnDisable" class="resend text-muted">(Try again in {{counter$ | async}})</h5>
+<h5 class="text-muted">By clicking Continue you are indicating that you agree to the <br fxHide fxShow.gt-sm>Terms And Conditions.</h5>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" mat-dialog-close>Cancel</button>
+    <button class="mat-raised-button mat-primary" mat-dialog-close (click)="submitCode()">Continue</button>
+</mat-dialog-actions>

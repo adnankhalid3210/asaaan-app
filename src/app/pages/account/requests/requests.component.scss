@@ -1,0 +1,95 @@
+// .orders-table.mat-table {
+//     display: block;
+//     overflow-x:auto;
+//     .mat-row, .mat-header-row {
+//         display: flex;
+//         border-bottom-width: 1px;
+//         border-bottom-style: solid;
+//         align-items: center;
+//         min-height: 48px;
+//         padding: 0 24px;
+//         min-width: 870px;
+//     }
+//     .mat-cell, .mat-header-cell {
+//         flex: 1;
+//         overflow: hidden;
+//         word-wrap: break-word;
+//     }
+//     .mat-header-cell {
+//         font-size: 14px;
+//     }
+//     .mat-cell{
+//         .order{
+//             color: inherit;
+//             text-decoration: none;
+//             font-weight: 500;
+//         }
+//         .btn-invoice{
+//             margin-left: 8px;
+//         }
+//         .actions{
+//             text-align: right;
+//         }
+//     }
+// }
+.mat-accordion .mat-header-row {
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+    border-bottom: none;
+  }
+  
+  .mat-expansion-panel-header.mat-row {
+    border-bottom: none;
+  }
+  
+  //copied from https://github.com/angular/material2/blob/master/src/lib/table/table.scss
+  $mat-header-row-height: 56px;
+  $mat-row-height: 48px;
+  $mat-row-horizontal-padding: 24px;
+  
+  .mat-table {
+    display: block;
+  }
+  
+  .mat-header-row {
+    min-height: $mat-header-row-height;
+  }
+  
+  .mat-row {
+    min-height: $mat-row-height;
+  }
+  
+  .mat-row, .mat-header-row {
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    align-items: center;
+    padding: 0 $mat-row-horizontal-padding;
+    box-sizing: border-box;
+  
+    // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+    // element that will stretch the row the correct height. See:
+    // https://connect.microsoft.com/IE/feedback/details/802625
+    &::after {
+      display: inline-block;
+      min-height: inherit;
+      content: '';
+    }
+  }
+  
+  .mat-cell, .mat-header-cell {
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  
+  h4 {
+      display: inline-block;
+  }
+  .actions {
+    float: right;
+  }
+
+  th, td {
+    padding: 5px;
+  }

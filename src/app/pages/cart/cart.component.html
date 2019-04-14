@@ -1,0 +1,68 @@
+<!-- <div *ngIf="appService.Data.cartList.length == 0">
+  <mat-chip-list>
+      <mat-chip color="warn" selected="true">YOU HAVE NO ITEMS IN YOUR SHOPPING CART.</mat-chip>
+  </mat-chip-list>
+  <a [routerLink]="['/']" mat-raised-button color="primary" class="mt-2">Continue shopping</a>
+</div> -->
+
+<mat-card class="p-0">
+
+  <div class="mat-table cart-table">
+    <div class="mat-header-row">
+      <div class="mat-header-cell">Id</div>
+      <div class="mat-header-cell">Service Provider</div>
+      <div class="mat-header-cell">Time</div>      
+      <!-- <div class="mat-header-cell">Date</div> -->
+      <div class="mat-header-cell">Address</div>
+      <div class="mat-header-cell text-center">
+        <div class="px-1">
+          <button mat-raised-button color="primary" routerLink = "/">Chat</button>
+          <!-- <button mat-raised-button color="primary">Chat</button> -->
+        </div>
+      </div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-cell">34789</div>
+      <div class="mat-cell">{{sp.name}}</div>
+      <div class="mat-cell">{{order.time}}</div>
+      <!-- <div class="mat-cell">{{order.date}}</div>       -->
+      <div class="mat-cell">{{order.address}}</div>      
+
+      <div class="mat-cell text-muted">
+        <!-- <app-controls [product]="product" [type]="'wish'" (onQuantityChange)="updateCart($event)"></app-controls> -->
+      </div>
+      <!-- <div class="mat-cell">${{total[product.id] | number : '1.2-2'}}</div> -->
+      <div class="mat-cell text-center">
+        <div class="p-1">
+          <!-- <button mat-mini-fab color="warn" (click)="remove(product)" matTooltip="Clear">
+              <mat-icon>close</mat-icon>
+          </button> -->
+          <button mat-raised-button color="warn" routerLink = "/" [disabled] = "btnDisable">Cancel</button>
+
+        </div>
+      </div>
+      
+    </div>
+    <!-- <div class="mat-row">
+      <div class="mat-cell"><a [routerLink]="['/']" mat-raised-button color="primary">Continue shopping</a></div>
+      <div class="mat-cell"></div>
+      <div class="mat-cell"></div>
+      <div class="mat-cell text-right">
+        <div fxLayout="column" fxLayoutAlign="center end" class="grand-total px-2">
+          <span>SubTotal:</span>
+          <span class="text-muted">Discount:</span>
+          <span class="new-price">Grand total:</span>
+        </div>        
+      </div>
+      <div class="mat-cell">
+        <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
+          <span>${{ grandTotal | number : '1.2-2'}}</span>
+          <span class="text-muted">15%</span>
+          <span class="new-price">${{ (grandTotal - (grandTotal*0.15)) | number : '1.2-2'}}</span>
+        </div>
+      </div>
+      <div class="mat-cell text-center"><a [routerLink]="['/checkout']" mat-raised-button color="primary">Proceed To Checkout</a></div>
+    </div> -->
+  </div>
+
+</mat-card>

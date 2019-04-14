@@ -1,0 +1,104 @@
+<div fxLayout="row wrap">
+  <div fxFlex="100" fxFlex.gt-sm="50" class="p-2">
+    <h2 class="text-muted text-center">Account details</h2>
+    <div *ngIf="this.user.category.length > 0">
+      <form [formGroup]="infoForm">
+        <mat-form-field class="w-100 mt-2">
+          <input matInput placeholder="Name" formControlName="name" required class="categories text-truncate">
+          <mat-error *ngIf="infoForm.controls.name.errors?.required">Name is required</mat-error>
+          <mat-error *ngIf="infoForm.controls.name.hasError('minlength')">Name isn't long enough, minimum of
+            3
+            characters</mat-error>
+        </mat-form-field>
+
+        <ng-select required matInput [maxSelectedItems]="3" [items]="services" placeholder="Select Service(s)" [addTag]="true"
+          [hideSelected]="true" multiple="true" bindLabel="name" formControlName="category" bindValue="id"
+          [selectOnTab]="true">
+        </ng-select>
+
+        <mat-form-field class="w-100 mt-1">
+          <input matInput google-place required type="text" formControlName="location" (onSelect)="setAddress($event)"
+            #location class="categories text-truncate " placeholder="Location..">
+          <button mat-icon-button matSuffix>
+            <!-- <mat-icon>place</mat-icon> -->
+            <i class="material-icons">
+              place
+            </i>
+          </button>
+          <mat-error *ngIf="infoForm.controls.location.errors?.required">Location is required</mat-error>
+          <mat-error *ngIf="infoForm.controls.location.errors?.notValid">Please select location from drop
+            down
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mt-1">
+          <textarea matInput placeholder="Description about your services..." formControlName="description"></textarea>
+          <!-- <mat-error *ngIf="infoForm.controls.description.errors?.required">Location is required</mat-error> -->
+          <mat-error *ngIf="infoForm.controls.description.hasError('minlength')">Description isn't long
+            enough,
+            minimum of 20 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mt-1">
+          <input type="number" matInput placeholder="Visiting or Survey charges..." formControlName="hourlyRate" class="example-right-align">
+          <!-- <span matPrefix>Rs.&nbsp;</span> -->
+          <span matSuffix>.00</span>
+        </mat-form-field>
+
+        <div class="text-center mt-2">
+          <button mat-raised-button color="primary" (click)="onInfoFormSubmit(infoForm.value)">Save</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="this.user.category.length < 1">
+      <form [formGroup]="userForm">
+        <mat-form-field class="w-100 mt-2">
+          <input matInput placeholder="Name" formControlName="name" required class="categories text-truncate">
+          <mat-error *ngIf="infoForm.controls.name.errors?.required">Name is required</mat-error>
+          <mat-error *ngIf="infoForm.controls.name.hasError('minlength')">Name isn't long enough, minimum of
+            3
+            characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mt-2">
+          <input readonly matInput placeholder="Phone number" formControlName="phone" required class="categories text-truncate">
+        </mat-form-field>
+        <div class="text-center mt-2">
+          <button mat-raised-button color="primary" (click)="onUserFormSubmit(infoForm.value)">Save</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="50" class="p-2" ngClass.sm="mt-2" ngClass.xs="mt-2">
+    <h2 class="text-muted text-center">Password change</h2>
+    <form [formGroup]="passwordForm" (ngSubmit)="onPasswordFormSubmit(passwordForm.value)">
+      <mat-form-field class="w-100 mt-2">
+        <input matInput placeholder="Current Password" formControlName="currentPassword" type="password" minlength="6"
+          required>
+        <mat-error *ngIf="passwordForm.controls.currentPassword.errors?.required">Current Password is required
+        </mat-error>
+        <mat-error *ngIf="passwordForm.controls.currentPassword.hasError('minlength')">Current Password isn't
+          long enough, minimum of 6 characters</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100 mt-1">
+        <input matInput placeholder="New Password" formControlName="newPassword" type="password" minlength="6" required>
+        <mat-error *ngIf="passwordForm.controls.newPassword.errors?.required">New Password is required
+        </mat-error>
+        <mat-error *ngIf="passwordForm.controls.newPassword.hasError('minlength')">New Password isn't long
+          enough, minimum of 6 characters</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100 mt-1">
+        <input matInput placeholder="Confirm New Password" formControlName="confirmNewPassword" type="password"
+          required>
+        <mat-error *ngIf="passwordForm.controls.confirmNewPassword.errors?.required">Confirm New Password is
+          required</mat-error>
+        <mat-error *ngIf="passwordForm.controls.confirmNewPassword.hasError('mismatchedPasswords')">Passwords
+          do not match</mat-error>
+      </mat-form-field>
+      <div class="text-center mt-2">
+        <button mat-raised-button color="primary" (click)="onPasswordFormSubmit(passwordForm.value)">Change</button>
+      </div>
+    </form>
+  </div>
+</div>

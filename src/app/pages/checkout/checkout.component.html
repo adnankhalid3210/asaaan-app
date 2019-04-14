@@ -1,0 +1,57 @@
+<h2 class="text-center text-muted">Fill these details to hire!</h2>
+<mat-divider></mat-divider>
+<div fxLayout="row wrap" class="flex-wrapper mt-1">
+  <div fxFlex="20" fxFlex.sm="50" fxFlex.xs="100" class="col">
+    <mat-card class="p-1">
+      <div class="text-center">
+        <a class="image-link">
+          <img [src]="hired.user.imageUrl ? hired.user.imageUrl : 'assets/images/others/no-pic.jpg'" alt="" class="center">
+        </a>
+        <a class="title text-truncate">
+          {{hired.user.name}}
+        </a>
+        <p class="text-muted text-truncate">{{hired.user.address}}</p>
+        <app-rating [ratingsCount]="233" [ratingsValue]="23" [direction]="'column'"></app-rating>
+        <mat-chip-list>
+          <mat-chip color="primary" selected="true">{{hired.category.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="50" fxFlex.sm="50" fxFlex.xs="100" class=" col">
+    <mat-card class=" p-1 ml-1">
+      <form [formGroup]="hireForm">
+        <mat-form-field class="w-100 mt-2">
+          <input matInput placeholder="Full address" formControlName="address" required>
+          <mat-error *ngIf="hireForm.controls.address.errors?.required">Full address is required</mat-error>
+          <mat-error *ngIf="hireForm.controls.address.hasError('minlength')">Full address isn't long enough, minimum of
+            10 characters </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <input matInput #input [matDatepicker]="picker" (focus)="picker.open()" placeholder="Choose date" required
+            formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker (closed)="input.blur()"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <input matInput [ngxTimepicker]="tPicker" placeholder="Choose time" required formControlName="time">
+          <mat-icon matSuffix>access_time</mat-icon>
+          <ngx-material-timepicker #tPicker [ngxMaterialTimepickerTheme]="customTheme"></ngx-material-timepicker>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <textarea matInput placeholder="Add some description..." formControlName="description"></textarea>
+          <mat-error *ngIf="hireForm.controls.description.hasError('minlength')">Description isn't long enough, minimum
+            of 20 characters.</mat-error>
+        </mat-form-field>
+        <div class="text-center mt-2">
+          <button mat-raised-button class="mat-elevation-z6" routerLink="/">
+            Cancel
+          </button>&nbsp;
+          <button mat-raised-button color="primary" class="mat-elevation-z6" (click)="onHireFormSubmit(hireForm.value)">
+            Continue<mat-icon>navigate_next</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

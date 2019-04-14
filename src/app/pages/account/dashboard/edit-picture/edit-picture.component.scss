@@ -1,0 +1,85 @@
+// .btnClose {
+//     float: right;
+// }
+.profile-dialog {
+    .mat-dialog-container {
+        overflow: visible !important;
+
+        .close-btn-outer {
+            position: relative;
+
+            button {
+                position: absolute;
+                right: -44px;
+                top: -44px;
+            }
+        }
+
+        .swiper-slide {
+            text-align: center;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.totalReviews {
+    padding: 0;
+}
+
+
+.mat-list.reviews {
+    .mat-list-item .mat-list-avatar.review-author {
+        width: 50px;
+        height: 50px;
+    }
+
+    .mat-list-item .mat-line.text {
+        white-space: unset;
+        font-style: italic;
+        margin: 2px 0;
+    }
+}
+
+.full-desc {
+    padding: 5px 7px;
+}
+
+.card-icon {
+    padding: 10px 0 0px;
+
+    i {
+        font-size: 55px;
+        border: 1px solid #E5E5E5;
+        border-radius: 50%;
+        width: 130px;
+        line-height: 130px;
+        height: 130px;
+    }
+}
+
+.example-card {
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.actions {
+    margin-top: 4px;
+}
+.file-label {
+    padding: 5px;
+    color: #53b995;
+    cursor: pointer;
+    border: 1px solid #53b995;
+
+}

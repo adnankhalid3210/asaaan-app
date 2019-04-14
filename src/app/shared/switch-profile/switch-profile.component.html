@@ -1,0 +1,46 @@
+<div class="close-btn-outer">
+  <button mat-mini-fab color="warn" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="100" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+      <h3 class="text-center">Please fill these details!</h3>
+      <div class="divider"></div>
+      <form [formGroup]="switchProfile" fxLayout="row wrap">
+
+        <mat-form-field class="w-100 mt-2">
+          <input matInput placeholder="Full Name" formControlName="name" required>
+          <mat-error *ngIf="switchProfile.controls.name.errors?.required">Full Name is required</mat-error>
+          <mat-error *ngIf="switchProfile.controls.name.hasError('minlength')">Full Name isn't long enough, minimum of 3
+            characters</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <input readonly matInput placeholder="Phone" formControlName="phone" required>
+        </mat-form-field>
+        <ng-select class="w-100 mt-1" required [maxSelectedItems]="3" [items]="company" placeholder="Select Service(s)" [addTag]="true"
+          [hideSelected]="true" multiple="true" bindLabel="name" formControlName="category" bindValue="id">
+        </ng-select>
+        <mat-form-field class="w-100 mt-1">
+          <input matInput google-place required type="text" formControlName="address" (onSelect)="setAddress($event)"
+            #location class="categories text-truncate text-muted" placeholder="Enter your location..">
+          <button type="button" mat-icon-button matSuffix>
+            <!-- <mat-icon>place</mat-icon> -->
+            <i class="material-icons">
+              place
+            </i>
+          </button>
+          <mat-error *ngIf="switchProfile.controls.address.errors?.required">Location is required</mat-error>
+          <mat-error *ngIf="switchProfile.controls.address.errors?.notValid">Please select location from drop down
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <div class="text-center mt-2">
+        <button mat-fab color="primary" class="mat-elevation-z6" (click)="onswitchProfileSubmit(switchProfile.value)">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

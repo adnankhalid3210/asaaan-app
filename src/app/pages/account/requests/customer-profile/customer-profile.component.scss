@@ -1,0 +1,47 @@
+// .btnClose {
+//     float: right;
+// }
+.profile-dialog {
+    .mat-dialog-container {
+        // min-width: 500px !important;
+        overflow: visible !important;
+
+        .close-btn-outer {
+            position: relative;
+
+            button {
+                position: absolute;
+                right: -44px;
+                top: -44px;
+            }
+        }
+
+        .swiper-slide {
+            text-align: center;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.totalReviews {
+    padding: 0;
+}
+
+
+.mat-list.reviews{
+    .mat-list-item .mat-list-avatar.review-author{
+        width: 50px;
+        height: 50px;
+    }
+    .mat-list-item .mat-line.text{
+        white-space: unset;
+        font-style: italic;
+        margin: 2px 0;
+    }
+}
+.full-desc{
+    padding: 5px 7px;
+}

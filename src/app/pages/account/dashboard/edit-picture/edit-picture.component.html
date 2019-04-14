@@ -1,0 +1,56 @@
+<div class="close-btn-outer">
+  <button class="btnClose" mat-mini-fab color="warn" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <div fxLayout="row wrap">
+    <mat-card class="example-card">
+
+      <mat-card-header fxLayoutAlign="center center">
+        <!-- <div class="card-icon">
+          <i class="material-icons">mail_outline</i>
+        </div> -->
+        <h3>Update Profile Picture</h3>
+
+      </mat-card-header>
+      <div class="mat-divider"></div>
+      <br />
+
+      <!-- <form *ngIf="active" #createUserImgForm="ngForm" id="frm_create_user_img" novalidate (ngSubmit)="uploadUserPic()"> -->
+        <!-- <div class="card-body "> -->
+            <mat-card-content>
+          <div class="row">
+            <div class="col-md-4 col-sm-3">
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                <div class="fileinput-new thumbnail">
+                  <img [src]="image ? image : 'assets/images/others/dum.jpg'" alt="..." width="150px" height="120px">
+                </div>
+                <!-- <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div> -->
+                <div class="actions">
+                  <span>
+                    <label class="file-label" for="file" *ngIf = "!image">Add Photo</label>
+                    <label class="file-label" for="file" *ngIf = "image">Change</label>
+                    <input id="file" type="file" class="inputfile" name="..." accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" />
+                  </span>
+                  &nbsp;
+                  <!-- <br /> -->
+                  <label (click) = "removePic()" class="file-label" *ngIf = "image" data-dismiss="fileinput"><i
+                      class="fa fa-times"></i> Remove</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-3"></div>
+          </div>
+        </mat-card-content>
+        <!-- </div> -->
+        <mat-card-actions>
+              <button mat-raised-button type="button" (click)="close()">Cancel</button>
+              <button mat-raised-button type="button" (click)="saveImage()">Save</button>
+      </mat-card-actions>
+    </mat-card>
+      <!-- </form> -->
+    </div>
+  </div>

@@ -1,0 +1,22 @@
+
+[
+    { "id": 1, "name": "All Categories", "hasSubCategory": false, "parentId": 0 },
+    { "id": 20, "name": "Electronics Repair", "hasSubCategory": true, "parentId": 0 },
+    { "id": 30, "name": "Air Conditioner", "hasSubCategory": false, "parentId": 20 },
+    { "id": 31, "name": "TV And LCD", "hasSubCategory": false, "parentId": 20 },
+    { "id": 32, "name": "Microwave", "hasSubCategory": false, "parentId": 20 },
+    { "id": 33, "name": "Washing Machine", "hasSubCategory": false, "parentId": 20 },
+    { "id": 34, "name": "Refrigerator", "hasSubCategory": false, "parentId": 20 },
+    { "id": 35, "name": "Water Dispenser", "hasSubCategory": false, "parentId": 20 },
+    { "id": 40, "name": "Heating Appliances", "hasSubCategory": true, "parentId": 0 },
+    { "id": 50, "name": "Gas Geyser", "hasSubCategory": false, "parentId": 40 },
+    { "id": 51, "name": "Iron", "hasSubCategory": false, "parentId": 40 },
+    { "id": 52, "name": "Water Heater", "hasSubCategory": false, "parentId": 40 },
+    { "id": 53, "name": "Power Suppliers", "hasSubCategory": true, "parentId": 0 }, 
+    { "id": 60, "name": "UPS", "hasSubCategory": false, "parentId": 53 },
+    { "id": 70, "name": "Stabilizers", "hasSubCategory": false, "parentId": 53 },
+    { "id": 71, "name": "Generators", "hasSubCategory": false, "parentId": 53 },
+    { "id": 72, "name": "Tuition And Education", "hasSubCategory": true, "parentId": 0 },
+    { "id": 73, "name": "Home Tuition", "hasSubCategory": false, "parentId": 0 },
+    { "id": 74, "name": "IELTS", "hasSubCategory": false, "parentId": 0 }
+]

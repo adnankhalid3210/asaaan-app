@@ -1,0 +1,62 @@
+<div class="close-btn-outer">
+  <button mat-mini-fab color="warn" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <div fxLayout="row wrap">
+    <!-- <div fxFlex="100" fxFlex.gt-sm="50">
+      <div class="swiper-container h-100" [swiper]="config">
+        <div class="swiper-wrapper">
+          <div *ngFor="let image of product.images" class="swiper-slide">
+            <img [attr.data-src]="image.medium" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+        <button mat-icon-button class="swiper-button-prev swipe-arrow">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button class="swiper-button-next swipe-arrow">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div> -->
+    <div fxFlex="100" fxFlex.gt-sm="50" class="text-center">
+      <img [src]="product.user.imageUrl ? product.user.imageUrl : 'assets/images/others/no-pic.jpg'" width="230px"
+        height="180px">
+      <!-- <div class="divider mt-1"></div>
+       <h3>Reviews</h3>
+      <div class="divider"></div> -->
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+      <h2>{{product.user.name}}</h2>
+      <div class="py-1 lh">
+        <!-- <p><span class="text-muted fw-500">Services: Electrician Pc-Repair</span></p> -->
+        <!-- <div *ngFor = "let service of product.category.name">
+            <mat-chip color="primary" selected>One fish</mat-chip>
+        </div> -->
+        <p><span class="text-muted fw-500">{{product.user.address}}</span></p>
+        <!-- <p><span class="text-muted fw-500">Availibility: </span><span>{{ (product.availibilityCount > 0) ? 'In stock':'Unavailable'}}</span></p> -->
+      </div>
+      <!-- <mat-chip-list *ngFor = "let service of product.category">
+        <mat-chip color="primary" selected>{{service.name}}</mat-chip>
+      </mat-chip-list> -->
+      <div class="py-1">
+        <app-rating [ratingsCount]="4" [ratingsValue]="260" [direction]="'row'"></app-rating>
+      </div>
+      <p class="text-muted lh">{{product.user.description}}</p>
+      <p class="text-muted lh">Visiting Charges: 300 Rs</p>
+      <p class="text-muted lh">Joined: {{ product.createdAt | timeAgo}}</p>
+      <div fxLayoutAlign="end center" class="text-muted">
+        <button class="profileLink" color = "primary" [mat-dialog-close]="product" mat-button matTooltip="View Profile">
+          Visit Profile
+        </button>
+      </div>
+      <div class="divider"></div>
+      <h2 class="mt-2"></h2>
+      <div (click)="close()">
+        <app-controls [product]="product" [type]="'all'"></app-controls>
+      </div>
+    </div>
+  </div>
+</div>

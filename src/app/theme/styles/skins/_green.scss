@@ -1,0 +1,37 @@
+$md-mcgpalette0: (
+    50 : #eaf7f2,
+    100 : #cbeadf,
+    200 : #a9dcca,
+    300 : #87ceb5,
+    400 : #6dc4a5,
+    500 : #53b995,
+    600 : #4cb28d,
+    700 : #42aa82,
+    800 : #39a278,
+    900 : #299367,
+    A100 : #d5ffed,
+    A200 : #a2ffd6,
+    A400 : #6fffc0,
+    A700 : #56ffb5,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$green-primary: mat-palette($md-mcgpalette0);
+$green-accent: mat-palette($mat-grey, 300, 100, 700);
+$green-warn: mat-palette($mat-red, 500, A200, 800);
+
+$green-theme: mat-light-theme($green-primary, $green-accent, $green-warn);

@@ -1,0 +1,58 @@
+<mat-card>
+  <div fxLayout="row wrap " fxLayoutAlign="center center">
+    <div fxFlex="100" fxFlex.gt-sm="50" ngClass.sm="mt-2" ngClass.xs="mt-2">
+      <h2 class="text-muted text-center">Register now!</h2>
+      <form [formGroup]="registerForm">
+        <mat-form-field class="w-100 mt-2">
+          <input matInput placeholder="Full Name" formControlName="name" required>
+          <mat-error *ngIf="registerForm.controls.name.errors?.required">Full Name is required</mat-error>
+          <mat-error *ngIf="registerForm.controls.name.hasError('minlength')">Full Name isn't long enough, minimum of 3
+            characters</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <input matInput placeholder="Phone" formControlName="phone" required>
+          <mat-error *ngIf="registerForm.controls.phone.errors?.required">Phone is required</mat-error>
+          <mat-error *ngIf="registerForm.controls.phone.hasError('invalidPhone')">Invalid phone number</mat-error>
+          <mat-error *ngIf="registerForm.controls.phone.errors?.notUnique">This Number Is Already Registered</mat-error>
+        </mat-form-field>
+        <ng-select required [maxSelectedItems]="3" [items]="company" placeholder="Select Service(s)" [addTag]="true"
+          [hideSelected]="true" multiple="true" bindLabel="name" formControlName="category" bindValue="id">
+        </ng-select>
+        <!-- <span class="error-s">Invalid Field</span> -->
+        <!-- <mat-error class="service-error" *ngIf="registerForm.controls.category.errors?.required && registerForm.controls.category.touched">Service(s) is required</mat-error> -->
+        <mat-form-field class="w-100 mt-1">
+          <input matInput google-place required type="text" formControlName="address" (onSelect)="setAddress($event)"
+            #location class="categories text-truncate text-muted" placeholder="Enter your location..">
+          <button type="button" mat-icon-button matSuffix>
+            <!-- <mat-icon>place</mat-icon> -->
+            <i class="material-icons">
+              place
+            </i>
+          </button>
+          <mat-error *ngIf="registerForm.controls.address.errors?.required">Location is required</mat-error>
+          <mat-error *ngIf="registerForm.controls.address.errors?.notValid">Please select location from drop down
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <input matInput placeholder="Password" formControlName="password" type="password" minlength="6" required>
+          <mat-error *ngIf="registerForm.controls.password.errors?.required">Password is required</mat-error>
+          <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Password isn't long enough, minimum
+            of 6 characters</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-1">
+          <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" required>
+          <mat-error *ngIf="registerForm.controls.confirmPassword.errors?.required">Confirm Password is required
+          </mat-error>
+          <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatchedPasswords')">Passwords do not
+            match</mat-error>
+        </mat-form-field>
+        <div class="text-center mt-2">
+          <button mat-fab color="primary" class="mat-elevation-z6" (click)="onRegisterFormSubmit(registerForm.value)">
+            <mat-icon>person_add</mat-icon>
+          </button>
+        </div>
+      </form>
+      <p class="text-center mt-1">Already have an account? <a routerLink="/sign-in">Sign In</a></p>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,30 @@
+<div mat-dialog-content>
+  <div fxLayout="row wrap">
+
+    <div fxFlex="100" fxFlex.gt-sm="100" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+      <h3 class="text-center">Please provide any reason!</h3>
+      <div class="divider"></div>
+
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="reportReason">
+        <mat-radio-button class="example-radio-button" [value]="'Fake Account'">
+          Fake Account
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="'Robber'">
+          Robber
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="'Unprofessional'">
+          Unprofessional
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="'Didn\'t pay'">
+          Didn't pay
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="'Abuse'">
+          Abuse
+        </mat-radio-button>
+      </mat-radio-group>
+      <button mat-raised-button (click) = "close()">Cancel</button>&nbsp;
+      <button type="button" mat-raised-button color="primary" (click) = "reportSubmit()">Send</button>
+    </div>
+  </div>
+</div>

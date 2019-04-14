@@ -1,0 +1,88 @@
+<!-- <div class="mat-table orders-table">
+    <div class="mat-header-row">
+      <div class="mat-header-cell">Id</div>
+      <div class="mat-header-cell">Service Provider</div>
+      <div class="mat-header-cell">Time</div>
+      <div class="mat-header-cell">Date</div>
+      <div class="mat-header-cell">Status</div>
+      <div class="mat-header-cell"></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-cell"><span class="order">352836</span></div>
+      <div class="mat-cell"> Ayaz Hussain</div> 
+      <div class="mat-cell">3:30 am</div>
+      <div class="mat-cell">3/5/2019</div>
+      <div class="mat-cell">Active</div>     
+      <div class="mat-cell">
+        <div class="p-1 actions">          
+          <button mat-mini-fab color="primary" matTooltip="Action">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+          <button mat-mini-fab color="primary" matTooltip="View details" class="btn-invoice">
+              <mat-icon>receipt</mat-icon>
+          </button>
+          <button mat-mini-fab color="primary" matTooltip="Chat" class="btn-invoice">
+            <mat-icon>chat</mat-icon>
+        </button>
+        </div>
+      </div>      
+    </div>
+  </div> -->
+
+<mat-accordion>
+  <section class="mat-elevation-z2 mat-header-row">
+    <span class="mat-header-cell">Date</span>
+    <!-- <span class="mat-header-cell">Id</span> -->
+    <span class="mat-header-cell">Customer</span>
+    <span class="mat-header-cell">Status</span>
+  </section>
+  <div *ngFor="let request of requests">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-row">
+        <span class="mat-cell">{{request.date | date}}</span>
+        <!-- <span class="mat-cell">{{request.requestId}}</span> -->
+        <span class="mat-cell">{{request.user.name}}</span>
+        <span class="mat-cell">{{request.status}}</span>
+      </mat-expansion-panel-header>
+      <h4>Request Details </h4>
+      <div class="actions">
+        <button *ngIf="request.status === 'Pending'" mat-raised-button color="primary" matTooltip="Accept hiring request"
+          (click)="changeStatus(request, 'Accepted')">
+          Accept
+        </button>&nbsp;
+        <button *ngIf="request.status === 'Pending'" mat-raised-button color="primary" matTooltip="Cancel request"
+          (click)="changeStatus(request, 'Rejected')">
+          Reject
+        </button>&nbsp;
+        <!-- <button *ngIf="request.status === 'Completed'" (click)="openReviewModal(request)" color="primary"
+          mat-raised-button>Close</button>&nbsp; -->
+        <button *ngIf="request.status === 'Accepted'" (click)="changeStatus(request, 'Cancelled')" color="primary"
+          mat-raised-button>Cancel</button>&nbsp;
+        <button *ngIf="request.status === 'Accepted'" (click)="openReviewModal(request)" color="primary"
+          mat-raised-button>Complete</button>
+      </div>
+      <table style="width:100%">
+        <tr>
+          <td>Hiring Date:</td>
+          <td>{{request.hiringDate | date}}</td>
+
+        </tr>
+        <tr>
+          <td>Time:</td>
+          <td>{{request.time}}</td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>{{request.address}}</td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>{{request.description}}</td>
+        </tr>
+      </table>
+
+      <button (click)="openModal(request.user)" mat-raised-button color="primary">View {{request.user.name}}'s Profile
+      </button>
+    </mat-expansion-panel>
+  </div>
+</mat-accordion>

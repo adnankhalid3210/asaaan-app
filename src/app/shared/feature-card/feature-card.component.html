@@ -1,0 +1,25 @@
+<mat-card class="text-center">
+  <!-- <mat-chip-list *ngIf="sp.discount">
+    <mat-chip color="warn" selected="true">Featured</mat-chip>
+  </mat-chip-list> -->
+  <!-- <a class="image-link text-center">
+    <img [src]="sp.user.imageUrl" alt="" width="190px" height="170px">
+  </a> -->
+  <mat-card-header>
+    <mat-card-title>
+      <h4>
+      Want to see your profile here and earn more?
+    </h4>
+  </mat-card-title>
+  </mat-card-header>
+  <div class="divider mt-2"></div>
+  
+  <mat-card-content class="mt-2">
+    Make more money by making yourself featured. Just click on the button below.
+  </mat-card-content>
+  <div class="divider mt-2"></div>
+  <div class="icons mt-2">
+    <button mat-raised-button class="mat-elevation-z4" color = "primary" routerLink = "/feature">Become Featured</button>
+    <!-- <app-controls [product]="sp" (onOpenProductDialog)="openProductDialog(sp)"></app-controls> -->
+  </div>
+</mat-card>

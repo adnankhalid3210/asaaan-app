@@ -1,0 +1,124 @@
+<!-- <p class="text-muted">Hello, <b>Emilio Verdines!</b>
+From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p> -->
+
+<div fxLayout="row wrap" class="flex-wrapper">
+  <div fxFlex="20" fxFlex.sm="40" fxFlex.xs="100" class="col">
+    <mat-card class="py-1">
+      <!-- <mat-card-header class="p-1 account-card-title" fxLayoutAlign="space-between center">
+              <mat-card-title class="m-0"><h3>Account Information</h3></mat-card-title>
+              <a mat-icon-button routerLink="/account/information"><mat-icon class="text-muted">edit</mat-icon></a>
+          </mat-card-header>
+          <div class="divider"></div> -->
+      <!-- <p>Emilio Verdines</p>
+              <p>emilio.verdines@gmail.com</p> -->
+      <div class="text-center img-holder">
+        <img [src]="user.imageUrl ? user.imageUrl : 'assets/images/others/dum.jpg'" width="170px" height="150px">
+
+        <!-- <input id="file" class="inputfile" type="file" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" />
+          <label class="file-label" for="file">Update Picture</label> -->
+        <button class="link" mat-icon-button type="button" color="primary" (click)="editPicture()"><i class="material-icons">
+            edit
+          </i>
+        </button>
+      </div>
+      <!-- <div class="content">
+            <div class="content-overlay"></div>
+            <img class="content-image" [src]="user.imageUrl" width="170px" height="150px">
+            <div class="content-details fadeIn-bottom">
+              
+              <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="primary">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+            </div>
+        </div> -->
+
+    </mat-card>
+  </div>
+  <div fxFlex="80" fxFlex.sm="50" fxFlex.xs="100" class="col">
+    <mat-card class="p-0">
+      <mat-card-header class="p-1 account-card-title" fxLayoutAlign="space-between center">
+        <mat-card-title class="m-0">
+          <h3>About</h3>
+        </mat-card-title>
+        <a mat-icon-button color="primary" routerLink="/account/information">
+          <mat-icon>edit</mat-icon>
+        </a>
+      </mat-card-header>
+      <div class="divider"></div>
+      <mat-card-content class="p-2 account-card-content">
+
+        <table style="width:100%">
+          <tr>
+            <td>Name:</td>
+            <td>{{user.name}}</td>
+
+          </tr>
+          <tr>
+            <td>Phone #:</td>
+            <td>{{user.phone}}</td>
+          </tr>
+          <tr *ngIf="user.address">
+            <td>Address:</td>
+            <td>{{user.address}}</td>
+          </tr>
+          <tr *ngIf="user.category?.length>0">
+            <td>Services:</td>
+            <td>
+              <p>
+                <mat-chip-list *ngFor="let service of user?.category">
+                  <mat-chip color="primary" selected>{{service.name}}</mat-chip>
+                </mat-chip-list>
+              </p>
+            </td>
+          </tr>
+          <tr *ngIf="user.description">
+            <td>Description:</td>
+            <td>{{user.description}}</td>
+          </tr>
+          <tr *ngIf="user.hourlyRate">
+            <td>Description:</td>
+            <td>{{user.hourlyRate}}</td>
+          </tr>
+          <!-- <tr>
+            <td>Rating:</td>
+            <td> -->
+          <!-- <app-rating [ratingsCount]="ratingsCount" [ratingsValue]="ratingsValue" [direction]="'row'"></app-rating> -->
+          <!-- <mat-tab-group>
+                <mat-tab *ngIf="user.category" label="As Provider">Ratings as customerRatings as customerRatings as
+                  customer</mat-tab>
+                <mat-tab label="As Customer">Ratings as customer</mat-tab>
+              </mat-tab-group>
+            </td>
+          </tr> -->
+        </table>
+        <div *ngIf="user.category?.length  < 1" class="text-center mt-2">
+          <h2>You can also earn money at Asaan.</h2>
+          <button (click)="openModal()" mat-raised-button color="primary" class="mt-1">Become Provider</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- <div fxFlex="33.3" fxFlex.sm="100" fxFlex.xs="100" class="col">
+        <mat-card class="p-0">
+          <mat-card-header class="p-1 account-card-title" fxLayoutAlign="space-between center">
+              <mat-card-title class="m-0"><h3>Orders</h3></mat-card-title>
+              <a mat-icon-button routerLink="/account/orders"><mat-icon class="text-muted">edit</mat-icon></a>
+          </mat-card-header>
+          <div class="divider"></div>
+          <mat-card-content class="p-2 text-muted account-card-content">
+            <p class="">Completed</p>
+            <mat-progress-bar value="75" color="primary"></mat-progress-bar>
+            <p class="mt-1">Processing</p>
+            <mat-progress-bar value="25" color="accent"></mat-progress-bar>
+            <p class="mt-1">On hold</p>
+            <mat-progress-bar value="65" color="warn"></mat-progress-bar>
+            <p class="mt-1">Refunded</p>
+            <mat-progress-bar value="25" color="primary"></mat-progress-bar>
+          </mat-card-content>
+        </mat-card>
+    </div> -->
+</div>

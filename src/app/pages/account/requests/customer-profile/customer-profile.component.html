@@ -1,0 +1,50 @@
+<div class="close-btn-outer">
+  <button class="btnClose" mat-mini-fab color="warn" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="35" class="text-center">
+      <img [src]="data.imageUrl ? data.imageUrl : 'assets/images/others/dum.jpg'" width="160px" height="140px">
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="65" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+      <h2>{{data.name}}</h2>
+      <div class="py-1">
+        <p><span class="text-muted fw-500" *ngIf = "data.address">{{data.address}}</span></p>
+      </div>
+      <!-- <p class="py-1 text-muted lh" *ngIf = "data.description">{{data.description}}</p> -->
+      <div class="py-1">
+        <app-rating [ratingsCount]="reviews?.length" [ratingsValue]="totalRating" [direction]="'row'"></app-rating>
+        <button [disabled]="reviews?.length === 0" class="totalReviews" (click)="reviewDetails()" mat-button color="primary">
+          (Total Reviews:
+          {{reviews?.length}})</button>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div *ngIf="showReviews" fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="100">
+      <h3>Customer's Reviews</h3>
+      <div class="lh">
+        <mat-list class="reviews">
+          <div *ngFor="let reviewes of reviews">
+            <mat-list-item class="h-100 py-1">
+              <img matListAvatar [src]="reviewes.givenBy.imageUrl ? reviewes.givenBy.imageUrl : 'assets/images/others/dum.jpg'"
+                alt="image" class="review-author">
+              <p matLine fxLayoutAlign="start center">
+                <span class="fw-500">{{reviewes.givenBy.name}}</span>&nbsp;
+                <!-- <mat-icon class="text-muted px-1" matTooltip="Dissatisfied" matTooltipPosition="after">sentiment_dissatisfied</mat-icon> -->
+                <app-rating [ratingsCount]="1" [ratingsValue] = "reviewes.rating" [direction]="'row'">
+                </app-rating>
+              </p>
+              <p matLine class="text-muted"><small>{{reviewes.createdAt | timeAgo}}</small></p>
+              <p matLine class="text">{{reviewes.comments}}
+              </p>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+</div>

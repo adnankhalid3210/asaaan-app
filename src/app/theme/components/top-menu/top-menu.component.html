@@ -1,0 +1,67 @@
+<div class="top-menu">
+  <a mat-button routerLink="/how-it-works" fxShow="false" fxShow.gt-sm>
+    How it works?
+  </a>
+  <div *ngIf="loggedIn; then Profile else becomeSeller"></div>
+
+  <ng-template #becomeSeller>
+    <a mat-button  routerLink="/become-seller" fxShow="false" fxShow.gt-sm>
+      Become Provider!
+    </a>
+    <a mat-button routerLink="/sign-in">
+      Log In
+    </a>
+  </ng-template>
+  <ng-template #Profile>
+    <a mat-button [matMenuTriggerFor]="accountMenu" #accountMenuTrigger="matMenuTrigger">
+      <mat-icon class="mat-icon-sm account-icon">person</mat-icon> <span fxShow>Profile</span>
+      <mat-icon class="mat-icon-sm caret">arrow_drop_down</mat-icon>
+    </a>
+    <mat-menu #accountMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown account">
+      <span (mouseleave)="accountMenuTrigger.closeMenu()">
+        <div fxLayout="row" fxLayoutAlign="space-around center" class="user-info">
+          <img [src]="user.imageUrl ? user.imageUrl : 'assets/images/others/dum.jpg'"  alt="user-image" style="width:40px; height:40px; border-radius:50%">
+          <p>{{user.name}}</p>
+        </div>
+        <div class="divider"></div>
+        <a mat-menu-item routerLink="/account">
+          <mat-icon class="mat-icon-sm">person</mat-icon>
+          <span>My Profile</span>
+        </a>
+        <a mat-menu-item routerLink="/account/information">
+          <mat-icon class="mat-icon-sm">settings</mat-icon>
+          <span>Account Settings</span>
+        </a>
+        <!-- <a mat-menu-item routerLink="/compare" fxHide="false" fxHide.gt-sm>
+          <mat-icon class="mat-icon-sm">compare</mat-icon>
+          <span>Compare ({{appService.Data.compareList.length}})</span>
+        </a>
+        <a mat-menu-item routerLink="/wishlist" fxHide="false" fxHide.gt-sm>
+          <mat-icon class="mat-icon-sm">favorite</mat-icon>
+          <span>Wishlist ({{appService.Data.wishList.length}})</span>
+        </a> -->
+        <a mat-menu-item routerLink="/account/orders">
+          <mat-icon class="mat-icon-sm">add_shopping_cart</mat-icon>
+          <span>My Order</span>
+        </a>
+        <a *ngIf = "user.category?.length > 0" mat-menu-item routerLink="/account/requests">
+          <mat-icon class="mat-icon-sm">work</mat-icon>
+          <span>Service Request</span>
+        </a>
+        <a *ngIf = "!user.category?.length > 0" mat-menu-item (click) = "openModal()">
+            <mat-icon class="mat-icon-sm">work</mat-icon>
+            <span style="color: #53b995">Become Provider</span>
+          </a>
+        <!-- <a mat-menu-item routerLink="/">
+          <mat-icon class="mat-icon-sm">help</mat-icon>
+          <span>Help</span>
+        </a> -->
+        <div class="divider"></div>
+        <a mat-menu-item (click)="logOut()">
+          <mat-icon class="mat-icon-sm">power_settings_new</mat-icon>
+          <span>Sign Out</span>
+        </a>
+      </span>
+    </mat-menu>
+  </ng-template>
+</div>

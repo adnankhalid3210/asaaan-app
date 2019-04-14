@@ -1,0 +1,40 @@
+<!-- <div class="close-btn-outer">
+  <button mat-mini-fab color="warn" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div> -->
+<div mat-dialog-content>
+  <div fxLayout="row wrap">
+
+    <div fxFlex="100" fxFlex.gt-sm="100" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+    <h3 class="text-center">Please give your review!</h3>
+     <div class="divider"></div>
+
+     <h3 fxLayoutAlign="start center" class="mt-2">
+      <span>Your Rating:</span>
+      <button mat-icon-button (click) = "rate(1)" matTooltip="Very Dissatisfied" matTooltipPosition="above">
+          <mat-icon class="mat-icon-lg">sentiment_very_dissatisfied</mat-icon>
+      </button>
+      <button mat-icon-button (click) = "rate(2)" matTooltip="Dissatisfied" matTooltipPosition="above">
+          <mat-icon class="mat-icon-lg">sentiment_dissatisfied</mat-icon>
+      </button>
+      <button mat-icon-button (click) = "rate(3)" matTooltip="Neutral" matTooltipPosition="above">
+          <mat-icon class="mat-icon-lg">sentiment_neutral</mat-icon>
+      </button>
+      <button mat-icon-button (click) = "rate(4)" matTooltip="Satisfied" matTooltipPosition="above">
+          <mat-icon class="mat-icon-lg">sentiment_satisfied</mat-icon>
+      </button>
+      <button mat-icon-button (click) = "rate(5)" matTooltip="Very Satisfied" matTooltipPosition="above">
+          <mat-icon class="mat-icon-lg">sentiment_very_satisfied</mat-icon>
+      </button>
+  </h3>
+  <form [formGroup]="reviewForm" fxLayout="row wrap">
+  <mat-form-field class="w-100">
+    <textarea matInput placeholder="Your review" formControlName = "comments" required></textarea>
+    <mat-error *ngIf="reviewForm.controls.comments.errors?.required">Review is required</mat-error>
+</mat-form-field>
+<button class="text-center" mat-raised-button color = "primary" (click) = "submitReview(reviewForm.value)">Submit</button>
+</form>
+    </div>
+  </div>
+</div>
